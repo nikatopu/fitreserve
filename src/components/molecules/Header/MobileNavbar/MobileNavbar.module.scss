@@ -1,0 +1,51 @@
+.mobileNavbar {
+  display: none;
+  position: fixed;
+  top: -100%;
+  transition: top 0.3s ease-in-out;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-dark);
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.open {
+    top: 0;
+  }
+}
+
+.navButton {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.5em;
+  width: 100%;
+  padding: 1em 0 0.5em 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+
+  &:hover {
+    background-color: var(--text-color-dark);
+    color: var(--text-color-light);
+  }
+}
+
+.authButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  width: 100%;
+  max-width: 12em;
+
+  button {
+    width: 100%;
+    min-height: 2.5em;
+    font-size: 1.5em;
+  }
+}

@@ -1,8 +1,9 @@
+import { JSX } from "react/jsx-runtime";
 import classNames from "classnames";
 import style from "./Button.module.scss";
 
 interface IProps {
-  label: string;
+  label: string | JSX.Element;
   onClick: () => void;
   type?: "button" | "submit" | "reset";
   theme?: "primary" | "secondary" | "transparent";

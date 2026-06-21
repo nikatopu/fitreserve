@@ -1,5 +1,5 @@
 .header {
-  height: var(--header-height);
+  min-height: var(--header-height);
   border-bottom: 1px solid var(--border-color);
 
   display: flex;
@@ -7,6 +7,24 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2em;
+
+  .mobileMenuButton {
+    display: none;
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    font-size: 0.9em;
+    cursor: pointer;
+    padding: 0em;
+    z-index: 1001;
+
+    width: 3em;
+    height: 3em;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
 }
 
 .logoLink,
@@ -15,26 +33,41 @@
   flex-direction: row;
   width: 12em;
   gap: 1em;
+
+  @media (max-width: 768px) {
+    width: auto;
+  }
 }
 
 .logo {
   width: 100%;
   height: auto;
+
 }
 
 .navButtonsContainer {
   display: flex;
   flex-direction: row;
 
-  .navButton {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 0.9em;
-    width: 100%;
-    padding: 0.5em;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
 
-    &:hover {
-      background-color: var(--text-color-dark);
-    }
+.navButton {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9em;
+  width: 100%;
+  padding: 0.5em;
+
+  &:hover {
+    background-color: var(--text-color-dark);
+  }
+}
+
+.authButtonsContainer {
+  @media (max-width: 768px) {
+    display: none;
   }
 }
