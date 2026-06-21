@@ -1,0 +1,38 @@
+.footer {
+  height: var(--footer-height);
+
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-color-dark);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  .logo {
+    width: 12em;
+  }
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.75em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
