@@ -6,10 +6,11 @@
   padding: 0;
 
   width: 100%;
-  min-height: 2.5em;
+  min-height: 2.75em;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   cursor: pointer;
   transition:
@@ -22,6 +23,7 @@
   }
 
   .label {
+    font-family: var(--font-body);
     font-size: 0.9em;
     margin: auto;
   }
@@ -34,5 +36,16 @@
   &:hover {
     background-color: transparent;
     color: var(--text-color-light);
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+
+  &:hover {
+    background-color: var(--text-color-light);
+    color: var(--text-color-dark);
   }
 }

@@ -1,5 +1,5 @@
 import { JSX } from "react/jsx-runtime";
-import style from "./Title.module.css";
+import style from "./Title.module.scss";
 import classNames from "classnames";
 
 interface IProps {

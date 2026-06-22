@@ -1,7 +1,10 @@
+import Landing from "../../components/organisms/Landing";
 import style from "./Home.module.scss";
 
 export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <div className={style.container}>
+      <Landing />
+    </div>
+  );
 }
