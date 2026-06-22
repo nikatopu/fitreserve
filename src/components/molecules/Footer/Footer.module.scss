@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: var(--section-padding);
 
   @media (max-width: 768px) {
     flex-direction: column;

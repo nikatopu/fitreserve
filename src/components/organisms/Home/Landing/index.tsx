@@ -1,7 +1,7 @@
-import Button from "../../atoms/Button";
-import Paragraph from "../../atoms/Paragraph";
-import Title from "../../atoms/Title";
-import Background from "../../molecules/Background";
+import Button from "../../../atoms/Button";
+import Paragraph from "../../../atoms/Paragraph";
+import Title from "../../../atoms/Title";
+import Background from "../../../molecules/Background";
 import style from "./Landing.module.scss";
 
 export default function Landing() {
