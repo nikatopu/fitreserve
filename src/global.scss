@@ -21,7 +21,7 @@
 
   --header-height: 5em;
   --footer-height: 9em;
-  --content-min-height: calc(100vh - var(--header-height));
+  --content-min-height: calc(100svh - var(--header-height));
 
   @media (max-width: 768px) {
     --section-padding: 3em 2em;
