@@ -33,6 +33,11 @@
       display: block;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 0 2em;
+    gap: 1em;
+  }
 }
 
 .logoLink,
@@ -44,6 +49,7 @@
 
   @media (max-width: 768px) {
     width: auto;
+    max-width: 12em;
   }
 }
 

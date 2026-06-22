@@ -29,7 +29,7 @@ export default function Programs() {
   return (
     <section className={style.container}>
       <div className={style.header}>
-        <Title text="Curated Disciplines" />
+        <Title text="Curated Disciplines" textAlign="left" />
 
         <Paragraph
           text="Master your physical potential through our specialized, highly focused training modalities."

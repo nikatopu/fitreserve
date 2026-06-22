@@ -9,6 +9,10 @@
   min-height: var(--content-min-height);
 
   background-color: var(--background-color-dark);
+
+  @media (max-width: 768px) {
+    gap: 0.5em;
+  }
 }
 
 .tiers {
@@ -21,6 +25,11 @@
   margin-top: 4em;
 
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3em;
+  }
 }
 
 .card {
@@ -44,6 +53,7 @@
 
 .premium {
   padding-top: 2em;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .badge {

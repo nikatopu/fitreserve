@@ -10,11 +10,17 @@
   gap: 4em;
 
   padding: var(--section-padding);
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    gap: 3em;
+  }
 }
 
 .trainer,
 .quote {
   flex: 1;
+  width: 100%;
   max-width: 35em;
 
   display: flex;

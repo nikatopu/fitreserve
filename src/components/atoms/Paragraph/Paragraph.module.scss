@@ -2,6 +2,11 @@
   font-family: var(--font-body);
   font-size: 1em;
   line-height: 1.75em;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
 }
 
 .small {

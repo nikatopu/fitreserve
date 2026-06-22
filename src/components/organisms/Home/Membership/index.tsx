@@ -52,7 +52,7 @@ export default function Membership() {
     <section className={style.container}>
       <Title text="Access Tiers" />
 
-      <Paragraph text="Select the level of access that aligns with your ambition." />
+      <Paragraph text="Select the level of access that aligns with your ambition." textAlign="center" />
 
       <div className={style.tiers}>
         {sortPremiumInMiddle.map((tier) => (

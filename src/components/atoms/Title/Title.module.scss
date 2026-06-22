@@ -3,10 +3,18 @@
   color: var(--text-color-light);
   font-weight: 400;
   font-size: 4em;
-  text-align: center;
   line-height: 1.2em;
+
+  @media (max-width: 768px) {
+    font-size: 3em;
+    line-height: 1em;
+  }
 }
 
 .small {
   font-size: 2em;
+
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+  }
 }
