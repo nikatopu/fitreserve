@@ -176,11 +176,12 @@ export interface Class {
   start_time: string;
   end_time: string;
   max_seats: number;
-  booked_seats: number;
+  deleted_at?: string | null;
   created_at: string;
   updated_at: string;
   professional?: Professional;
   program?: Program;
+  _count?: { bookings: number };
 }
 
 export interface CreateClassDto {

@@ -100,7 +100,7 @@ export default function TrainerDetail({ id }: IProps) {
                   </span>
                 </div>
                 <span className={style.seats}>
-                  {c.max_seats - c.booked_seats} seats left
+                  {c.max_seats - (c._count?.bookings ?? 0)} seats left
                 </span>
               </li>
             ))}
