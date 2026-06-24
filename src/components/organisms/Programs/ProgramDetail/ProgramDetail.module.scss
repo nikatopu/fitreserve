@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  max-width: 52em;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.category {
+  font-family: var(--font-body);
+  font-size: 0.75em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--button-primary-color);
+}
+
+.duration {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  color: var(--text-color);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.classList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.classItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.25em;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1em;
+
+  &:first-child {
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.classTitle {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  color: var(--text-color-light);
+}
+
+.classMeta {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  color: var(--text-color);
+}
+
+.trainerLink {
+  color: var(--text-color-light);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--button-primary-color);
+  }
+}
+
+.seats {
+  font-family: var(--font-body);
+  font-size: 0.78em;
+  color: var(--text-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Membership from "./pages/Membership";
 import UserPage from "./pages/User";
 import UserMyMembership from "./pages/UserMyMembership";
+import Programs from "./pages/Programs";
 import Schedule from "./pages/Schedule";
 import Trainers from "./pages/Trainers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/membership" element={<Membership />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/user/my-membership" element={<UserMyMembership />} />
+          <Route path="/programs" element={<Programs />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

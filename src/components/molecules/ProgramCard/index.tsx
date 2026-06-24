@@ -12,7 +12,7 @@ export default function ProgramCard({
   const { title, category, id } = program;
 
   return (
-    <a href={`/programs/${id}`} className={style.container}>
+    <a href={`/programs?id=${id}`} className={style.container}>
       <img src={image} alt={title} className={style.image} />
 
       <div className={style.content}>

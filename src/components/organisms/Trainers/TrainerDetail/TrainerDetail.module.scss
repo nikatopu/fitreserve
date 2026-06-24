@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  max-width: 52em;
+}
+
+.profile {
+  display: flex;
+  gap: 2.5em;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarInitials {
+  font-family: var(--font-title);
+  font-size: 2em;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.specialization {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  color: var(--button-primary-color);
+  text-transform: uppercase;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-top: 2em;
+  border-top: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.classList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.classItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.25em;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1em;
+
+  &:first-child {
+    border-top: 1px solid var(--border-color);
+  }
+}
+
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.classTitle {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  color: var(--text-color-light);
+}
+
+.classMeta {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  color: var(--text-color);
+}
+
+.programLink {
+  color: var(--text-color-light);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--button-primary-color);
+  }
+}
+
+.seats {
+  font-family: var(--font-body);
+  font-size: 0.78em;
+  color: var(--text-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
