@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   min-height: var(--content-min-height);
-  padding: 3em 5em 5em;
+  padding: var(--section-padding);
 }
 
 .pageHeader {
@@ -10,7 +10,7 @@
   gap: 0.5em;
   padding-bottom: 2em;
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: 2.5em;
+  margin: 2.5em 0;
 }
 
 .backLink {
