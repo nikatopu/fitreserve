@@ -1,3 +1,4 @@
+import { useAppContext } from "../../../../context/AppContext";
 import Button from "../../../atoms/Button";
 import Paragraph from "../../../atoms/Paragraph";
 import Title from "../../../atoms/Title";
@@ -5,6 +6,9 @@ import Background from "../../../molecules/Background";
 import style from "./Landing.module.scss";
 
 export default function Landing() {
+  const { companyData } = useAppContext();
+  const { status } = companyData || {};
+
   function handleBookAClass() {
     window.location.href = "./schedule";
   }
@@ -51,7 +55,7 @@ export default function Landing() {
         <Paragraph
           text={
             <>
-              STATION STATUS: <b>OPEN</b>
+              STATION STATUS: <b>{status || "CLOSED"}</b>
             </>
           }
           size="small"

@@ -3,27 +3,16 @@ import Paragraph from "../../../atoms/Paragraph";
 import Title from "../../../atoms/Title";
 import style from "./Programs.module.scss";
 import ProgramCard from "../../../molecules/ProgramCard";
+import { useAppContext } from "../../../../context/AppContext";
 
 export default function Programs() {
-  const programs = [
-    {
-      image: "/assets/functional-power.jpg",
-      title: "Functional Power",
-      category: "STRENGTH",
-      link: "/programs?title=functional-power",
-    },
-    {
-      image: "/assets/hypertrophy.jpg",
-      title: "Hypertrophy",
-      category: "BODYBUILDING",
-      link: "/programs?title=hypertrophy",
-    },
-    {
-      image: "/assets/calisthenics.jpg",
-      title: "Calisthenics",
-      category: "GROUP DYNAMICS",
-      link: "/programs?title=calisthenics",
-    },
+  const { programsData } = useAppContext();
+
+  const topThreeProrgrams = programsData ? programsData.slice(0, 3) : [];
+  const covers = [
+    "/assets/functional-power.jpg",
+    "/assets/hypertrophy.jpg",
+    "/assets/calisthenics.jpg",
   ];
 
   return (
@@ -42,8 +31,12 @@ export default function Programs() {
       </div>
 
       <div className={style.programs}>
-        {programs.map((program) => (
-          <ProgramCard key={program.title} {...program} />
+        {topThreeProrgrams.map((program, index) => (
+          <ProgramCard
+            key={program.title}
+            program={program}
+            image={covers[index]}
+          />
         ))}
       </div>
     </section>

@@ -1,16 +1,18 @@
+import { Program } from "../../../api";
 import Title from "../../atoms/Title";
 import style from "./ProgramCard.module.scss";
 
-interface IProps {
+export default function ProgramCard({
+  program,
+  image,
+}: {
+  program: Program;
   image: string;
-  title: string;
-  category: string;
-  link: string;
-}
+}) {
+  const { title, category, id } = program;
 
-export default function ProgramCard({ image, title, category, link }: IProps) {
   return (
-    <a href={link} className={style.container}>
+    <a href={`/programs/${id}`} className={style.container}>
       <img src={image} alt={title} className={style.image} />
 
       <div className={style.content}>
