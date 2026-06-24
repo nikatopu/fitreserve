@@ -1,0 +1,89 @@
+.container {
+  width: 100%;
+  min-height: var(--content-min-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 2em;
+}
+
+.card {
+  width: 100%;
+  max-width: 28em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  flex: 1;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+}
+
+.input {
+  background-color: var(--background-color-lightest);
+  border: 1px solid var(--border-color);
+  color: var(--text-color-light);
+  font-family: var(--font-body);
+  font-size: 1em;
+  padding: 0.7em 0.9em;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+
+  &::placeholder {
+    color: var(--text-color);
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: var(--text-color);
+  }
+}
+
+.actions {
+  margin-top: 0.5em;
+}
+
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5em;
+}
+
+.link {
+  color: var(--text-color-light);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--button-primary-color);
+  }
+}

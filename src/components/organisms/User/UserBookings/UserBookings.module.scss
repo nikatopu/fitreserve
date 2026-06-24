@@ -1,0 +1,99 @@
+.section {
+  border: 1px solid var(--border-color);
+}
+
+.toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 1em 1.5em;
+  background: var(--background-color-lightest);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  color: var(--text-color-light);
+  letter-spacing: 0.03em;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: var(--background-color-dark);
+  }
+}
+
+.count {
+  margin-left: auto;
+  background-color: var(--background-color-dark);
+  color: var(--text-color);
+  font-size: 0.8em;
+  padding: 0.15em 0.5em;
+}
+
+.chevron {
+  font-size: 0.65em;
+  color: var(--text-color);
+}
+
+.content {
+  border-top: 1px solid var(--border-color);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1.5em;
+  align-items: flex-start;
+}
+
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  color: var(--text-color-light);
+}
+
+.meta {
+  font-family: var(--font-body);
+  font-size: 0.8em;
+  color: var(--text-color);
+}
+
+.status {
+  font-family: var(--font-body);
+  font-size: 0.75em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.status_confirmed {
+  color: #6fcf97;
+}
+
+.status_cancelled {
+  color: #eb5757;
+}

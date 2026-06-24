@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  min-height: var(--content-min-height);
+  padding: 3em 5em 5em;
+}
+
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2.5em;
+}
+
+.backLink {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-top: 0.5em;
+
+  &:hover {
+    color: var(--text-color-light);
+  }
+}

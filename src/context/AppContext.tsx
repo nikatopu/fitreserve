@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import {
   classesApi,
   companiesApi,
@@ -92,9 +98,8 @@ export function AppContextProvider({
     });
   }
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    // Fetch company data here and set it to state
-
     fetchCompanyData();
     fetchClassesData();
     fetchProgramsData();

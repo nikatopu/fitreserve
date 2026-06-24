@@ -1,7 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Membership from "./pages/Membership";
+import UserPage from "./pages/User";
+import UserMyMembership from "./pages/UserMyMembership";
 import Schedule from "./pages/Schedule";
 import Trainers from "./pages/Trainers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -18,12 +22,17 @@ function App() {
       <div className={style.content}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/user/my-membership" element={<UserMyMembership />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+
         </Routes>
       </div>
 

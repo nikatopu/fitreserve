@@ -5,6 +5,7 @@ import style from "./Header.module.scss";
 import Button from "../../atoms/Button";
 import { useState } from "react";
 import MobileNavbar from "./MobileNavbar";
+import { useAuth } from "../../../context/AuthContext";
 
 export interface INavButton {
   label: string;
@@ -13,6 +14,7 @@ export interface INavButton {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
 
   const navButtons: INavButton[] = [
     {
@@ -41,6 +43,11 @@ export default function Header() {
     window.location.href = "/signup";
   }
 
+  async function handleLogout() {
+    await logout();
+    window.location.href = "/";
+  }
+
   return (
     <header className={style.header}>
       <Link to="/" className={style.logoLink}>
@@ -64,13 +71,25 @@ export default function Header() {
       </div>
 
       <div className={style.authButtonsContainer}>
-        <Button
-          label="Member Login"
-          onClick={handleLogin}
-          theme="transparent"
-        />
-
-        <Button label="Sign Up" onClick={handleSignUp} theme="primary" />
+        {isAuthenticated ? (
+          <>
+            <Button
+              label="My Account"
+              onClick={() => { window.location.href = "/user"; }}
+              theme="transparent"
+            />
+            <Button label="Log Out" onClick={handleLogout} theme="primary" />
+          </>
+        ) : (
+          <>
+            <Button
+              label="Member Login"
+              onClick={handleLogin}
+              theme="transparent"
+            />
+            <Button label="Sign Up" onClick={handleSignUp} theme="primary" />
+          </>
+        )}
       </div>
 
       <Button
