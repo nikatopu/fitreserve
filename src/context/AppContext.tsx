@@ -15,12 +15,20 @@ import {
 import type { Class, Company, Membership, Professional, Program } from "../api";
 import { toast } from "react-hot-toast";
 
+interface IModal {
+  type: string;
+  data: unknown;
+}
+
 interface AppContextState {
   companyData: Company | null;
   classesData: Class[] | null;
   programsData: Program[] | null;
   professionalsData: Professional[] | null;
   allMembershipsData: Membership[] | null;
+  modal: IModal | null;
+  openModal: (type: string, data?: unknown) => void;
+  closeModal: () => void;
 }
 
 const AppContext = createContext<AppContextState | null>(null);
@@ -39,6 +47,13 @@ export function AppContextProvider({
   const [allMembershipsData, setAllMembershipsData] = useState<
     Membership[] | null
   >(null);
+  const [modal, setModal] = useState<IModal | null>(null);
+
+  const openModal = useCallback(
+    (type: string, data: unknown = {}) => setModal({ type, data }),
+    [],
+  );
+  const closeModal = useCallback(() => setModal(null), []);
 
   async function fetchHandler<T>({
     dataObtain,
@@ -115,6 +130,9 @@ export function AppContextProvider({
         programsData,
         professionalsData,
         allMembershipsData,
+        modal,
+        openModal,
+        closeModal,
       }}
     >
       {children}

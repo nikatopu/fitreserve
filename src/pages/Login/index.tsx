@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import Title from "../../components/atoms/Title";
@@ -10,13 +10,18 @@ import style from "./Login.module.scss";
 export default function Login() {
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const redirectParam = searchParams.get("redirect");
+  const safeRedirect =
+    redirectParam && redirectParam.startsWith("/") ? redirectParam : "/membership";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (isAuthenticated) {
-    navigate("/membership");
+    navigate(safeRedirect);
     return null;
   }
 
@@ -26,7 +31,7 @@ export default function Login() {
     try {
       await login({ email, password });
       toast.success("Welcome back.");
-      navigate("/membership");
+      navigate(safeRedirect);
     } catch (err: unknown) {
       const message =
         err instanceof Error ? err.message : "Login failed. Please try again.";

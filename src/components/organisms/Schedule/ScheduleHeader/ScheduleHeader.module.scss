@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.filter {
+  background: var(--background-color-dark);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  outline: none;
+  min-width: 10em;
+
+  &:hover {
+    border-color: var(--text-color);
+  }
+}

@@ -1,0 +1,30 @@
+.weekNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25em 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navBtn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  padding: 0.4em 1.25em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--text-color);
+  }
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  color: var(--text-color);
+  letter-spacing: 0.02em;
+}
