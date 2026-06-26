@@ -1,46 +1,138 @@
-# Getting Started with Create React App
+# FitReserve
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fitness facility reservation and membership management platform built with React and TypeScript. Members can browse programs, view schedules, book classes with trainers and manage their memberships - all from one place.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+| Layer         | Technology            |
+| ------------- | --------------------- |
+| Framework     | React 19 + TypeScript |
+| Routing       | React Router v7       |
+| Styling       | SCSS Modules          |
+| State         | React Context API     |
+| Notifications | react-hot-toast       |
+| Build         | Create React App      |
+| Backend       | REST API (Render.com) |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Authentication** - register, login, token refresh and logout
+- **Programs** - browse fitness programs offered by the facility
+- **Schedule** - view weekly class schedules
+- **Trainers** - explore trainer profiles and book directly from their page
+- **Memberships** - view and purchase membership tiers
+- **Bookings** - book and manage class reservations
+- **User Dashboard** - view account details, active membership and booking history
+- **Responsive Design** - mobile-first layout with a dedicated mobile navbar
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js 18+
+- npm 9+
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+```bash
+git clone <repository-url>
+cd fitreserve
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Environment Variables
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Copy the example env file and fill in your values:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+cp .env.example .env
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Variable               | Description                            |
+| ---------------------- | -------------------------------------- |
+| `REACT_APP_API_URL`    | Backend API base URL                   |
+| `REACT_APP_PROJECT_ID` | Project identifier used by the backend |
+| `PORT`                 | Dev server port (default: `3001`)      |
 
-## Learn More
+### Running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start        # Development server on http://localhost:3001
+npm run build    # Production build output to /build
+npm test         # Run test suite
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## Project Structure
+
+```
+fitreserve/
+├── public/
+│   ├── index.html              # HTML entry point + meta tags
+│   ├── manifest.json           # PWA manifest
+│   └── fitreserve-logo.svg
+│
+├── src/
+│   ├── App.tsx                 # Route definitions
+│   ├── index.tsx               # React root + context providers
+│   │
+│   ├── pages/                  # Page-level components
+│   │   ├── Home/
+│   │   ├── Programs/
+│   │   ├── Schedule/
+│   │   ├── Trainers/
+│   │   ├── Membership/
+│   │   ├── Login/
+│   │   ├── SignUp/
+│   │   ├── Dashboard/
+│   │   ├── User/
+│   │   ├── UserMyMembership/
+│   │   ├── PrivacyPolicy/
+│   │   └── TermsOfService/
+│   │
+│   ├── components/             # Atomic design component library
+│   │   ├── atoms/              # Button, Title, Paragraph
+│   │   ├── molecules/          # Header, Footer, Modal, ProgramCard
+│   │   └── organisms/          # Page sections (Landing, Schedule, etc.)
+│   │
+│   ├── context/                # Global state
+│   │   ├── AuthContext.tsx     # Auth state & token management
+│   │   ├── AppContext.tsx      # App data & modal control
+│   │   └── BookingsContext.tsx
+│   │
+│   └── api/                    # Backend API client
+│       ├── client.ts           # HTTP client with auto token refresh
+│       ├── types.ts            # Shared TypeScript types
+│       └── */route.ts          # Per-resource API methods
+│
+├── .env.example
+├── tsconfig.json
+└── package.json
+```
+
+---
+
+## Authentication
+
+- Bearer token-based authentication
+- Access tokens expire every 15 minutes; refresh tokens are used automatically
+- Tokens are stored in `localStorage` under `fitreserve_access_token` and `fitreserve_refresh_token`
+
+---
+
+## API
+
+The frontend connects to a backend REST API. Full API reference is documented in [API.md](./API.md) and available interactively at `/api/docs` on the backend host.
+
+---
+
+## License
+
+Private - all rights reserved.
