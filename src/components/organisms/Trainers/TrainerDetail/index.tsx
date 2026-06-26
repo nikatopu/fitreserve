@@ -1,6 +1,7 @@
 import { useAppContext } from "../../../../context/AppContext";
 import Title from "../../../atoms/Title";
 import Paragraph from "../../../atoms/Paragraph";
+import Button from "../../../atoms/Button";
 import style from "./TrainerDetail.module.scss";
 
 interface IProps {
@@ -24,7 +25,7 @@ function formatTime(timeStr: string): string {
 }
 
 export default function TrainerDetail({ id }: IProps) {
-  const { professionalsData, classesData } = useAppContext();
+  const { professionalsData, classesData, openModal } = useAppContext();
 
   const trainer = professionalsData?.find((p) => p.id === id) ?? null;
 
@@ -99,9 +100,17 @@ export default function TrainerDetail({ id }: IProps) {
                     )}
                   </span>
                 </div>
-                <span className={style.seats}>
-                  {c.max_seats - (c._count?.bookings ?? 0)} seats left
-                </span>
+                <div className={style.classActions}>
+                  <span className={style.seats}>
+                    {c.max_seats - (c._count?.bookings ?? 0)} seats left
+                  </span>
+                  <Button
+                    label="Book Now"
+                    onClick={() => openModal("class-detail", { classId: c.id })}
+                    theme="primary"
+                    type="button"
+                  />
+                </div>
               </li>
             ))}
           </ul>

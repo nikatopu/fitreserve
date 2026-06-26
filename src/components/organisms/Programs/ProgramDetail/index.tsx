@@ -1,6 +1,7 @@
 import { useAppContext } from "../../../../context/AppContext";
 import Title from "../../../atoms/Title";
 import Paragraph from "../../../atoms/Paragraph";
+import Button from "../../../atoms/Button";
 import style from "./ProgramDetail.module.scss";
 
 interface IProps {
@@ -24,7 +25,7 @@ function formatTime(timeStr: string): string {
 }
 
 export default function ProgramDetail({ id }: IProps) {
-  const { programsData, classesData, professionalsData } = useAppContext();
+  const { programsData, classesData, professionalsData, openModal } = useAppContext();
 
   const program = programsData?.find((p) => p.id === id) ?? null;
 
@@ -77,9 +78,17 @@ export default function ProgramDetail({ id }: IProps) {
                       )}
                     </span>
                   </div>
-                  <span className={style.seats}>
-                    {c.max_seats - (c._count?.bookings ?? 0)} seats left
-                  </span>
+                  <div className={style.classActions}>
+                    <span className={style.seats}>
+                      {c.max_seats - (c._count?.bookings ?? 0)} seats left
+                    </span>
+                    <Button
+                      label="Book Now"
+                      onClick={() => openModal("class-detail", { classId: c.id })}
+                      theme="primary"
+                      type="button"
+                    />
+                  </div>
                 </li>
               );
             })}
