@@ -61,26 +61,51 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1em;
   padding: 1em 1.5em;
   border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5em;
-
-    padding: 1em;
-  }
-
-  &:last-child {
-    border-bottom: none;
   }
 }
 
 .info {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.2em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-shrink: 0;
+
+  width: 100%;
+  max-width: 14em;
+  @media (max-width: 768px) {
+    max-width: none;
+  }
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+
+.confirmActions {
+  display: flex;
+  gap: 0.75em;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -95,18 +120,3 @@
   color: var(--text-color);
 }
 
-.status {
-  font-family: var(--font-body);
-  font-size: 0.75em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-color);
-}
-
-.status_confirmed {
-  color: #6fcf97;
-}
-
-.status_cancelled {
-  color: #eb5757;
-}

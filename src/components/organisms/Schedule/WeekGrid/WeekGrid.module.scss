@@ -3,6 +3,22 @@
   grid-template-columns: repeat(7, 1fr);
   border-left: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+    // Stretch last
+    & > :nth-child(7) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    & > :nth-child(7) {
+      grid-column: span 1;
+    }
+  }
 }
 
 .column {

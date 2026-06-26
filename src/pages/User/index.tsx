@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 import { bookingsApi, membershipsApi } from "../../api";
 import type { Booking, UserMembership } from "../../api";
@@ -19,6 +20,26 @@ export default function UserPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [myMemberships, setMyMemberships] = useState<UserMembership[]>([]);
   const [dataLoading, setDataLoading] = useState(true);
+
+  async function handleCancelBooking(bookingId: string) {
+    const original = bookings.find((b) => b.id === bookingId);
+    if (!original) return;
+    const originalStatus = original.status;
+    setBookings((prev) =>
+      prev.map((b) => (b.id === bookingId ? { ...b, status: "cancelled" } : b)),
+    );
+    try {
+      await bookingsApi.cancel(bookingId);
+      toast.success("Booking cancelled.");
+    } catch {
+      setBookings((prev) =>
+        prev.map((b) =>
+          b.id === bookingId ? { ...b, status: originalStatus } : b,
+        ),
+      );
+      toast.error("Failed to cancel booking. Please try again.");
+    }
+  }
 
   useEffect(() => {
     if (!isAuthenticated) return;
@@ -93,7 +114,7 @@ export default function UserPage() {
         <div className={style.columns}>
           <div className={style.columnLeft}>
             <UserStats bookings={bookings} />
-            <UserBookings bookings={bookings} />
+            <UserBookings bookings={bookings} onCancel={handleCancelBooking} />
           </div>
           <div className={style.columnRight}>
             <UserMembershipCard

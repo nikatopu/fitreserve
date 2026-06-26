@@ -8,6 +8,7 @@ import {
   formatTime,
 } from "../../organisms/Schedule/scheduleUtils";
 import Button from "../../atoms/Button";
+import { useAppContext } from "../../../context/AppContext";
 
 interface IClassDetail {
   cls: Class;
@@ -30,11 +31,13 @@ export default function ClassDetail({
   onCancel,
   onClose,
 }: IClassDetail) {
+  const { closeModal } = useAppContext();
   const navigate = useNavigate();
   const isBooked = !!booking || isLocallyBooked;
   const seatsLeft = cls.max_seats - (cls._count?.bookings ?? 0);
 
   function signInToBook() {
+    closeModal();
     navigate(
       `/login?redirect=${encodeURIComponent(`/schedule?class=${cls.id}`)}`,
     );

@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Booking } from "../../../../api";
+import { useAppContext } from "../../../../context/AppContext";
+import Modal from "../../../molecules/Modal";
 import Button from "../../../atoms/Button";
 import Paragraph from "../../../atoms/Paragraph";
+import Title from "../../../atoms/Title";
 import style from "./UserBookings.module.scss";
 
 interface IProps {
   bookings: Booking[];
+  onCancel: (bookingId: string) => void;
 }
 
 function formatDate(dateStr: string): string {
@@ -25,9 +29,11 @@ function formatTime(timeStr: string): string {
   return `${display}:${m} ${ampm}`;
 }
 
-export default function UserBookings({ bookings }: IProps) {
+export default function UserBookings({ bookings, onCancel }: IProps) {
   const navigate = useNavigate();
+  const { openModal } = useAppContext();
   const [open, setOpen] = useState(true);
+  const [confirmCancelId, setConfirmCancelId] = useState<string | null>(null);
 
   const now = new Date();
   const upcoming = bookings.filter((b) => {
@@ -72,22 +78,63 @@ export default function UserBookings({ bookings }: IProps) {
                       {b.class?.start_time
                         ? ` · ${formatTime(b.class.start_time)}`
                         : ""}
+                      {b.class?.end_time
+                        ? ` – ${formatTime(b.class.end_time)}`
+                        : ""}
                     </span>
                   </div>
-                  <span
-                    className={[
-                      style.status,
-                      style[`status_${b.status}`],
-                    ].join(" ")}
-                  >
-                    {b.status}
-                  </span>
+                  <div className={style.actions}>
+                    <Button
+                      label="View Class"
+                      onClick={() =>
+                        openModal("class-detail", { classId: b.class_id })
+                      }
+                      theme="primary"
+                      type="button"
+                    />
+                    <Button
+                      label="Cancel"
+                      onClick={() => setConfirmCancelId(b.id)}
+                      theme="transparent"
+                      type="button"
+                    />
+                  </div>
                 </li>
               ))}
             </ul>
           )}
         </div>
       )}
+
+      <Modal
+        isOpen={confirmCancelId !== null}
+        onClose={() => setConfirmCancelId(null)}
+      >
+        <div className={style.confirm}>
+          <Title text="Cancel Booking" size="small" textAlign="left" />
+          <Paragraph
+            text="Are you sure you want to cancel this booking? This action cannot be undone."
+            size="small"
+          />
+          <div className={style.confirmActions}>
+            <Button
+              label="Yes, Cancel Booking"
+              onClick={() => {
+                if (confirmCancelId) onCancel(confirmCancelId);
+                setConfirmCancelId(null);
+              }}
+              theme="primary"
+              type="button"
+            />
+            <Button
+              label="Keep Booking"
+              onClick={() => setConfirmCancelId(null)}
+              theme="secondary"
+              type="button"
+            />
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
